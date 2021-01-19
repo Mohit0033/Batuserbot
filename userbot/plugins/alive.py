@@ -3,7 +3,7 @@ from platform import python_version
 
 from telethon import version
 
-from . import ALIVE_NAME, StartTime, catdef, catversion, mention, reply_id
+from . import ALIVE_NAME, StartTime, batdef, batversion, mention, reply_id
 
 DEFAULTUSER = ALIVE_NAME or "batuserbot:-)"
 CAT_IMG = Config.ALIVE_PIC
@@ -28,7 +28,7 @@ async def amireallyalive(alive):
         cat_caption += f"**{EMOJI} Uptime :** `{uptime}\n`"
         cat_caption += f"**{EMOJI} Master:** {mention}\n"
         await alive.client.send_file(
-            alive.chat_id, CAT_IMG, caption=cat_caption, reply_to=reply_to_id
+            alive.chat_id, BAT_IMG, caption=bat_caption, reply_to=reply_to_id
         )
         await alive.delete()
     else:
@@ -37,7 +37,7 @@ async def amireallyalive(alive):
             f"**{CUSTOM_ALIVE_TEXT}**\n\n"
             f"**{EMOJI} Database :** `{check_sgnirts}`\n"
             f"**{EMOJI} Telethon Version :** `{version.__version__}\n`"
-            f"**{EMOJI} Catuserbot Version :** `{catversion}`\n"
+            f"**{EMOJI} Batuserbot Version :** `{batversion}`\n"
             f"**{EMOJI} Python Version :** `{python_version()}\n`"
             f"**{EMOJI} Uptime :** `{uptime}\n`"
             f"**{EMOJI} Master:** {mention}\n",
@@ -56,7 +56,7 @@ async def amireallyalive(alive):
     cat_caption += f"**  -Batuserbot Version :** `{batversion}`\n"
     cat_caption += f"**  -Python Version :** `{python_version()}\n`"
     cat_caption += f"**  -Master:** {mention}\n"
-    results = await bot.inline_query(tgbotusername, cat_caption)  # pylint:disable=E0602
+    results = await bot.inline_query(tgbotusername, bat_caption)  # pylint:disable=E0602
     await results[0].click(alive.chat_id, reply_to=reply_to_id, hide_via=True)
     await alive.delete()
 
