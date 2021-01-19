@@ -7,7 +7,7 @@ import time
 
 from telethon import Button, custom, events
 
-from . import CMD_LIST, catalive
+from . import CMD_LIST, batalive
 
 CAT_IMG = Config.ALIVE_PIC or None
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
@@ -25,26 +25,26 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             buttons = [
                 (
                     custom.Button.inline("Stats", data="stats"),
-                    Button.url("Repo", "https://github.com/sandy1709/catuserbot"),
+                    Button.url("Repo", "https://github.com/flaahokiller/batuserbot"),
                 )
             ]
-            if CAT_IMG and CAT_IMG.endswith((".jpg", ".png")):
+            if BAT_IMG and BAT_IMG.endswith((".jpg", ".png")):
                 result = builder.photo(
-                    CAT_IMG,
-                    # title="Alive cat",
+                    BAT_IMG,
+                    # title="Alive bat",
                     text=query,
                     buttons=buttons,
                 )
-            elif CAT_IMG:
+            elif BAT_IMG:
                 result = builder.document(
-                    CAT_IMG,
-                    title="Alive cat",
+                    BAT_IMG,
+                    title="Alive bat",
                     text=query,
                     buttons=buttons,
                 )
             else:
                 result = builder.article(
-                    title="Alive cat",
+                    title="Alive bat",
                     text=query,
                     buttons=buttons,
                 )
@@ -110,9 +110,9 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 try:
                     u = await event.client.get_entity(u)
                     if u.username:
-                        sandy = f"@{u.username}"
+                        Flaahokiller = f"@{u.username}"
                     else:
-                        sandy = f"[{u.first_name}](tg://user?id={u.id})"
+                        Flaahokiller = f"[{u.first_name}](tg://user?id={u.id})"
                 except ValueError:
                     # ValueError: Could not find the input entity
                     sandy = f"[user](tg://user?id={u})"
@@ -123,9 +123,9 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 except ValueError:
                     return
                 if u.username:
-                    sandy = f"@{u.username}"
+                    Flaahokiller = f"@{u.username}"
                 else:
-                    sandy = f"[{u.first_name}](tg://user?id={u.id})"
+                    flaahokiller = f"[{u.first_name}](tg://user?id={u.id})"
                 u = int(u.id)
             except:
                 return
@@ -137,7 +137,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             ]
             result = builder.article(
                 title="secret message",
-                text=f"🔒 A whisper message to {sandy}, Only he/she can open it.",
+                text=f"🔒 A whisper message to {Flaahokiller}, Only he/she can open it.",
                 buttons=buttons,
             )
             await event.answer([result] if result else None)
@@ -159,7 +159,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "Please get your own catuserbot, and don't use mine! Join @catuserbot17 help"
+            reply_pop_up_alert = "Please get your own batuserbot, and don't use mine! Join will be added in next update 🙂  help"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(
@@ -235,7 +235,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                         caption=plugin_name,
                     )
         else:
-            reply_pop_up_alert = "Please get your own catuserbot, and don't use mine! Join @catuserbot17 help "
+            reply_pop_up_alert = "Please get your own catuserbot, and don't use mine! Join will be added in next update 🙂 help "
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
@@ -243,7 +243,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         if event.query.user_id == bot.uid:
             await event.edit("menu closed")
         else:
-            reply_pop_up_alert = "Please get your own catuserbot, and don't use mine! Join @catuserbot17 help "
+            reply_pop_up_alert = "Please get your own catuserbot, and don't use mine! Join will be added in next update help "
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stats")))
