@@ -23,7 +23,7 @@ async def amireallyalive(alive):
         cat_caption = f"**{CUSTOM_ALIVE_TEXT}**\n\n"
         cat_caption += f"**{EMOJI} Database :** `{check_sgnirts}`\n"
         cat_caption += f"**{EMOJI} Telethon version :** `{version.__version__}\n`"
-        cat_caption += f"**{EMOJI} Catuserbot Version :** `{catversion}`\n"
+        cat_caption += f"**{EMOJI} batserbot Version :** `{batversion}`\n"
         cat_caption += f"**{EMOJI} Python Version :** `{python_version()}\n`"
         cat_caption += f"**{EMOJI} Uptime :** `{uptime}\n`"
         cat_caption += f"**{EMOJI} Master:** {mention}\n"
@@ -51,9 +51,9 @@ async def amireallyalive(alive):
         return
     tgbotusername = Config.TG_BOT_USER_NAME_BF_HER
     reply_to_id = await reply_id(alive)
-    cat_caption = f"**Catuserbot is Up and Running**\n"
+    cat_caption = f"**Batuserbot is Up and Running**\n"
     cat_caption += f"**  -Telethon version :** `{version.__version__}\n`"
-    cat_caption += f"**  -Catuserbot Version :** `{catversion}`\n"
+    cat_caption += f"**  -Batuserbot Version :** `{batversion}`\n"
     cat_caption += f"**  -Python Version :** `{python_version()}\n`"
     cat_caption += f"**  -Master:** {mention}\n"
     results = await bot.inline_query(tgbotusername, cat_caption)  # pylint:disable=E0602
